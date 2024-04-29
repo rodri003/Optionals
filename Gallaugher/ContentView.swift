@@ -28,15 +28,7 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                Divider ()
-                    .background(.black)
-                    .padding()
-                    .frame(width: 150)
-                
-                Rectangle()
-                    .fill (.indigo)
-                    .frame(width: geometry.size.width * (2/3)
-                           , height: 1)
+               
                 
                 HStack {
                     
