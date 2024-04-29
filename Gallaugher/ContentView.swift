@@ -12,12 +12,16 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-                  
+            
             Text(messageString)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
+                .minimumScaleFactor(0.5)
                 .foregroundColor(.red)
                 .multilineTextAlignment(.center)
+                .frame(height: 150)
+                .frame(maxWidth: .infinity)
+                .border(.orange, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                 .padding()
             
             HStack {
@@ -36,7 +40,7 @@ struct ContentView: View {
             }
             
         }
-        .padding()
+        //.padding()
     }
 }
 
