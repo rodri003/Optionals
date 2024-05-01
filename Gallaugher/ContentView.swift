@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var messageName = ""
+    @State private var messageString = ""
     @State private var imageName = ""
+    @State private var imageNumber = 0
     
     var body: some View {
         GeometryReader {geometry in
             VStack {
+                
                 Image(imageName)
                     .resizable()
                     .scaledToFit()
@@ -25,14 +27,14 @@ struct ContentView: View {
                 
                 
                 
-//                Text (messageString)
-//                    .font(.largeTitle)
-//                    .fontWeight(.heavy)
-//                    .minimumScaleFactor(0.5)
-//                    .foregroundColor(.red)
-//                    .multilineTextAlignment(.center)
-//                    .frame(height: 150)
-//                    .frame(maxWidth: .infinity)
+                Text (messageString)
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .minimumScaleFactor(0.5)
+                    .foregroundColor(.red)
+                    .multilineTextAlignment(.center)
+                    .frame(height: 150)
+                    .frame(maxWidth: .infinity)
                 //   .border(.orange, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     .padding()
                 
@@ -43,15 +45,23 @@ struct ContentView: View {
                 
                 Button("Show Message") {
                     // This is the action performed when the button is pressed.
-                    let image1 = "horizontal"
-                    let image2 = "vertical"
-                    //                    if messageString == message1 {
-                    //                        messageString = message2
-                    //                    } else {
-                    //                        messageString = message1
-                    //                    }
-                    imageName = (imageName == image1 ? image2 : image1)
+                    let message1 = "You Are Awesome!"
+                    let message2 = "You Are Great!"
+                    
+                    messageString = (messageString == message1 ? message2 : message1)
+                    
+                    //TODO:  - update the imageName - variable
+                    imageName = "image\(imageNumber)"
+                    
+                    imageNumber += 1
+                    if imageNumber > 9 {
+                      imageNumber = 0
+                    }
+                    print (imageNumber)
+                    
+                    
                 }
+                    
                 .buttonStyle(.borderedProminent)
                 
                 
