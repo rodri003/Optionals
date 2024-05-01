@@ -11,10 +11,12 @@ struct ContentView: View {
     @State private var messageString = ""
     @State private var imageName = ""
     @State private var imageNumber = 0
+    @State private var messageNumber = 0
     
     var body: some View {
         GeometryReader {geometry in
             VStack {
+                
                 
                 Image(imageName)
                     .resizable()
@@ -44,24 +46,35 @@ struct ContentView: View {
                 
                 
                 Button("Show Message") {
-                    // This is the action performed when the button is pressed.
-                    let message1 = "You Are Awesome!"
-                    let message2 = "You Are Great!"
                     
-                    messageString = (messageString == message1 ? message2 : message1)
+                    let messages = ["You are Awesome!",
+                                    "You Are Great!" ,
+                                    "Fabulous? That's You!",
+                                    "You are Fantastic",
+                                    "You Swifty!",
+                                    "You Are a Code Monster",
+                                    "You Did It!"]
+                    messageString = messages[messageNumber]
+                    messageNumber += 1
+                    if messageNumber == messages.count {
+                        messageNumber = 0
+                    }
+                    
+                    
+  
                     
                     //TODO:  - update the imageName - variable
                     imageName = "image\(imageNumber)"
                     
                     imageNumber += 1
                     if imageNumber > 9 {
-                      imageNumber = 0
+                        imageNumber = 0
                     }
-                    print (imageNumber)
+                    //                    print (imageNumber)
                     
                     
                 }
-                    
+                
                 .buttonStyle(.borderedProminent)
                 
                 
