@@ -54,22 +54,22 @@ struct ContentView: View {
                                     "You Swifty!",
                                     "You Are a Code Monster",
                                     "You Did It!"]
-                    messageString = messages[messageNumber]
-                    messageNumber += 1
-                    if messageNumber == messages.count {
-                        messageNumber = 0
-                    }
+//                    messageString = messages[messageNumber]
+//                    messageNumber += 1
+//                    if messageNumber == messages.count {
+//                        messageNumber = 0
+//                    }
+                    messageString = (messages[Int.random(in: 0...messages.count - 1)])
                     
-                    
-  
+                    imageName = "image\(Int.random(in: 0...9))"
                     
                     //TODO:  - update the imageName - variable
-                    imageName = "image\(imageNumber)"
-                    
-                    imageNumber += 1
-                    if imageNumber > 9 {
-                        imageNumber = 0
-                    }
+//                    imageName = "image\(imageNumber)"
+//                    
+//                    imageNumber += 1
+//                    if imageNumber > 9 {
+//                        imageNumber = 0
+//                    }
                     //                    print (imageNumber)
                     
                     
