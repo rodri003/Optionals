@@ -10,8 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @State private var messageString = ""
     @State private var imageName = ""
-    @State private var imageNumber = 0
-    @State private var messageNumber = 0
+//    @State private var imageNumber = 0
+//    @State private var messageNumber = 0
+    @State private var lastImageNumber = -1
+    @State private var lastMessageNumber = -1
     
     var body: some View {
         GeometryReader {geometry in
@@ -46,18 +48,35 @@ struct ContentView: View {
                                     "You Swifty!",
                                     "You Are a Code Monster",
                                     "You Did It!"]
+                    
+                    var messageNumber: Int
+                                        
+                    repeat {
+                        messageNumber = Int.random(in: 0...messages.count - 1)
+                    } while messageNumber == lastMessageNumber
+                    messageString = messages[messageNumber]
+                    lastMessageNumber = messageNumber
+                    
+                    
+                    
                     //                    messageString = messages[messageNumber]
                     //                    messageNumber += 1
                     //                    if messageNumber == messages.count {
                     //                        messageNumber = 0
                     //                    }
-                    messageString = (messages[Int.random(in: 0...messages.count - 1)])
                     
-                    imageName = "image\(Int.random(in: 0...9))"
+                    
+                    var imageNumber: Int
+                    
+                    repeat {
+                        imageNumber = Int.random(in: 0...9)
+                    } while imageNumber == lastImageNumber
+                    imageName = "image\(imageNumber)"
+                    lastImageNumber = imageNumber
                     
                     //TODO:  - update the imageName - variable
                     //                    imageName = "image\(imageNumber)"
-                    //                    
+                    //
                     //                    imageNumber += 1
                     //                    if imageNumber > 9 {
                     //                        imageNumber = 0
