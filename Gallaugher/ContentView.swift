@@ -33,19 +33,24 @@ struct ContentView: View {
                     .frame(maxWidth: .infinity)
                 //   .border(.orange, width: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/)
                     .padding()
+//                    .animation(.easeInOut, value: messageString)
+                    .animation(.easeInOut(duration: 1.0), value: messageString)
                 
                 Image(imageName)
                     .resizable()
                     .scaledToFit()
-                    .cornerRadius(5)
+                    
+                
                     .padding()
+//                    .animation(.easeInOut, value: messageString)
+                    .animation(.easeInOut(duration: 1.0), value: messageString)
                 
                 Spacer()
                 
                 
                 HStack {
                  
-                    Text ("Toggle is On:")
+                    Text ("Sound is On:")
                         
                        
                     Toggle("", isOn: $soundIsOn)
@@ -63,6 +68,7 @@ struct ContentView: View {
                                 audioPlayer.stop()
                             }
                         }
+//                        .tint(.blue)
                                 
                       Spacer()
                        
@@ -147,12 +153,13 @@ struct ContentView: View {
                     }
                     
                     .buttonStyle(.borderedProminent)
-                    
+//                    .tint (.blue)
                     
                     
                     
         
                 }
+                .tint (.accentColor)
                 .padding()
                 // Spacer()
             }
